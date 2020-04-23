@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gauss-Jordan</title>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Metodo Gauss-Jordan</h1>
+        <div class="modulos">
+            <div id="lista" class="parametros">
+                
+            </div>
+            <div class="entrada">
+                <p>Matriz de entrada:</p>
+                <p>Filas:</p>
+                <input clas="filas" id="input-filas" type="number" value="3">
+                <p>Columnas:</p>
+                <input clas="columnas" id="input-columnas" type="number" value="3">
+                <div class="matriz">
+                </div>
+                <div class="botones">
+                    <button class="boton boton-verde" id="agregar">AGREGAR</button>
+                    <button class="boton boton-rojo" id="cancelar">CANCELAR</button>
+                    <button class="boton" id="copiar">COPIAR</button>
+                </div>
+            </div>
+            <div class="salida">
+                <p>Matriz de salida:</p>
+                <div class="matriz">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                    <input class="output" type="text">
+                </div>
+                <button class="boton" id="obtener">COPIAR</button>
+            </div>
+        </div>
+       
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

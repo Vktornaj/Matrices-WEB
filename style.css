@@ -1,0 +1,121 @@
+body {
+    margin: 0px;
+}
+
+h1 {
+    display: inline-block;
+    color: black;
+}
+
+input {
+    width: 30px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.contenedor {
+    
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: green;
+    
+}
+
+.modulos {
+    text-align: left;
+}
+
+@media (min-width:480px) {
+    .modulos {
+        display: flex;
+        text-align: left;
+    }
+}
+
+.entrada {
+    height: 400px;
+    background-color: antiquewhite;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 0.1cm;
+}
+
+.entrada p {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    height: 2.7rem;
+}
+
+.salida {
+    height: 400px;
+    background-color: antiquewhite;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 0.1cm;
+}
+
+.matriz {
+    background-color: rgb(18, 98, 109);
+    width: 320px;
+    height: 320px;
+    margin: auto;
+    border-radius: 0.1cm;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.input {
+    margin: auto;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+}
+
+.output {
+    margin: auto;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+}
+
+.boton {
+    margin-top: 1.4rem;
+    color: honeydew;
+    background-color: rgb(0, 19, 61);
+    border-radius: 0.15cm;
+}
+
+.boton-rojo {
+    background-color: red;
+}
+
+.boton-verde {
+    background-color: green;
+}
+
+.boton:hover {
+    color: rgb(136, 138, 136);
+    border-radius: 0.15cm;
+}
+
+.parametros {
+    flex-basis: 30%;
+}
+
+.parametros p {
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: black;
+    border-radius: 0.2cm;
+}
