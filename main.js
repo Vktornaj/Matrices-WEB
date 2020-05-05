@@ -1,34 +1,33 @@
 // Variables Globales
-let matrices = ['A'];
 let instancias = [];
-let iGraficas = [];
+let mat = [];
+let elementos = [];
 
 // Clases
-class MatrizContenido {
+class Matriz {
+    static numero = 0;
+    id;
     nFilas;
     nColumnas;
     contenido;
-    numeros;
 
-    constructor(nFilas = 0, nColumnas = 0) {
+    constructor(nFilas, nColumnas) {
+        this.id = String.fromCharCode( 65 + Matriz.numero );
+        Matriz.numero++;
         this.nFilas = nFilas;
         this.nColumnas = nColumnas;
         this.contenido = [];
         for (let i = 0; i < nFilas * nColumnas; i++) {
             this.contenido[i] = 0;
         }
-        
     }
-     
+
     llenar() {
         let numeros = document.querySelectorAll('.input');
         for (let i = 0; i < this.nColumnas * this.nFilas; i++) {
             this.contenido[i] = numeros[i].value;
-            console.log('Hello');
         }
-        console.log(`Llenando ${this.contenido}`);
     }
-    
 }
 
 // Selectores
@@ -84,30 +83,40 @@ function actualizar() {
     }
 }
 
-// Agregar matrices 
-lista.innerHTML += `<p id="matrizA">Matriz ${matrices[0]}</p>`;
-instancias[matrices.length - 1] = new MatrizContenido(inputFilas.value, inputColumnas.value);
-iGraficas.push(document.querySelectorAll('.input')[matrices.length - 1]);
-iGraficas[iGraficas.length - 1].addEventListener('click', () => {
-    const a = iGraficas.length - 1;
-    let contenedor = document.querySelectorAll('.input');
-    for (let i = 0; i < columns * rows; i++) {
-        
-    }
+// click al boton AGREGAR
+btnAgregar.addEventListener('click', () => {
+    
+    const num = Matriz.numero;
+    mat.push(new Matriz(inputFilas.value, inputColumnas.value));
+    const id = mat[num].id;
+    elementos[num] = document.createElement('p');
+    const text = document.createTextNode(`Matriz ${id}`);
+    elementos[num].appendChild(text);
+    const padre = document.getElementById('lista');
+    padre.insertBefore(elementos[num], null); 
+    mat[num].llenar();
+    restablecer();
+    elementos[num].addEventListener('click', () => {
+        mostrarM(mat[num]);
+    });
+
 });
 
-btnAgregar.addEventListener('click', () => {
-    matrices.push(String.fromCharCode(matrices[matrices.length - 1].charCodeAt() + 1));
-    let s = matrices[matrices.length - 1];
-    lista.innerHTML += `<p id="matriz${s}">Matriz ${s}</p>`;
-    instancias[matrices.length - 1] = new MatrizContenido(inputFilas.value, inputColumnas.value);
-    instancias[matrices.length - 2].llenar();
+// Restablecer Entradas
+function restablecer() {
     let contenedores = document.querySelectorAll('.input');
-    iGraficas.push(document.querySelectorAll('.input')[matrices.length - 1]);
     for (let i = 0; i < columns * rows; i++) {
         contenedores[i].value = '';
     }
-});
+}
 
 // Mostrar matrices
-
+function mostrarM(m) {
+    inputFilas.value = m.nFilas;
+    inputColumnas.value = m.nColumnas;
+    actualizar();
+    let contenedores = document.querySelectorAll('.input');
+    for (let i = 0; i < columns * rows; i++) {
+        contenedores[i].value = m.contenido[i];
+    }
+}
